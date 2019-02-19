@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <div class="l-box">
+            <h4 class="content-subhead">Frota disponível</h4>
+            <p>Abaixo a lista dos veículos cadastrados no banco de dados</p>
+        </div>
+    </div>
+</div>
+{% for cadastro in cadastros %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1-3">
+        <div class="l-box">
+            <a href="{% url 'details' slug=cadastro.slug %}">
+                {% if cadastro.image %}
+                <img src="{{ cadastro.image.url }}" alt="{{ cadastro.name }}" />
+                {% else %}
+                <img src="{% static 'img/course-image.png' %}" alt="{{ cadastro.name }}" />
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    <div class="pure-u-2-3">
+        <div class="l-box">
+            <h4 class="content-subhead"><a href="{% url 'details' slug=cadastro.slug %}" title="">{{ cadastro.name }}</a></h4>
+            {{ cadastro.description|linebreaks }}
+        </div>
+    </div>
+</div>
+{% empty %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <div class="l-box">
+            <p>Nenhum veículo está disponível</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

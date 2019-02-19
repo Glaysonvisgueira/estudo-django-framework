@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+
+        <h1 class="content-subhead">Motoristas</h1>
+        <p>Motoristas cadastrados:</p>
+    </div>
+</div>
+
+{% for motorista in motoristas %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <h4>
+            <p>
+                Nome:{{ motorista.name }}<br/>
+                RG:{{ motorista.rg_identidade }}<br/>
+                CPF:{{ motorista.CPF }}<br/>
+                Categoria:{{ motorista.categoria_habilitacao }}<br/>
+                <HR>
+            </p>
+        </h4>
+
+    </div>
+</div>
+
+{% empty %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <div class="l-box">
+            <p>Nenhum motorista cadastrado</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
