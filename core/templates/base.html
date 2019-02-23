@@ -15,98 +15,78 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(página atual)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Cadastro
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'veiculos' %}">Veículo</a>
-              <a class="dropdown-item" href="#">Motorista</a>              
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Veículos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'motoristas' %}">Motoristas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Fale Conosco</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'dashboard' %}">Painel</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Sair</a>
-        </li>
-        
+        <ul class="navbar-nav mr-auto">          
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Início</a>
+            </li>        
+
+            <li class="nav-item">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cadastros
+                    </a>
+                    <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'veiculos' %}">Veículo</a>
+                        <a class="dropdown-item" href="#">Motorista</a>
+                    </div>                
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Veículos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'motoristas' %}">Motoristas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Fale Conosco</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Painel</a>
+            </li>  
+        </div>
+        {% endif %}
+    </ul>    
+</div>
+{% if user.is_authenticated %}
+<div class="dropleft">
+    <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Opções
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Editar conta</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</a>
+                <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item " href="#">Editar conta</a>
                     <a class="dropdown-item" href="#">Alterar Senha</a>
                     <a class="dropdown-item" href="#">Alterar E-mail</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'logout' %}">Logout (Sair)</a>
                 </div>                
             </div>
-        </div>
-    </li>
-    {% else %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">Entrar</a>
-    </li>
-
-    {% endif %}
-
-
-</ul>    
+        </li>
+    </ul>
 </div>
+{% else %}
+<ul class="navbar-nav mr-auto">          
+    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Entrar</a></li>        
+    {% endif %}
 </nav>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-{% block content %}{% endblock%}   
-    <!--
-    <div class="content">
-        <div class="header">
-            <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-                <a class="pure-menu-heading " href="">ROUTERMAX</a>
-                <ul>
-                    <li class="pure-menu-selected"><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'index' %}">Veículos</a></li>
-                    <li><a href="{% url 'motoristas' %}">Motoristas</a></li>
-                    <li><a href="{% url 'veiculos' %}">Cadastrar Frota</a></li>
-                    <li><a href="#">Editar Veículo</a></li>
-                    <li><a href="{% url 'contact' %}">Fale Conosco</a></li>
-                    <li><a href="{% url 'sobre' %}">Sobre</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'dashboard' %}">Painel</a></li>
-                    <li><a href="{% url 'logout' %}">Sair</a></li>
-                    {% else %}
-                    <li><a href="{% url 'login' %}">Entrar</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer">
-            RouterMax: a menor distância entre você e o seu destino!
-        </div>
-    </div>-->
-
+{% block content %}{% endblock%}  
+<footer class="page-footer font-small blue pt-4">    
+    <div class="container-fluid text-center text-md-left">       
+      <hr class="clearfix w-100 d-md-none pb-3">
+  </div>
+</div>
+<div class="footer-copyright text-center py-3">© 2018 Copyright:
+  <a href="http://localhost:8000/"> routermax.com.br</a>
+</div>
+</footer>
 </body>
 </html>
 

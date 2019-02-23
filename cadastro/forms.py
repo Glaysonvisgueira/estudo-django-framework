@@ -9,6 +9,10 @@ class ContactCourse(forms.Form):
 
 class Carrosform(forms.ModelForm):
 
-    class Meta:
-        model = Carros
-        fields = ['modelo','ano','codigo']
+	modelo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o modelo do veículo'}))
+	ano = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o ano do veículo'}))
+	codigo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o código do carro'}))
+
+	class Meta:
+		model = Carros
+		fields = ['modelo','ano','codigo']

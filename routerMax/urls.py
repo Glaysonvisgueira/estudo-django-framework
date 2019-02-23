@@ -28,6 +28,7 @@ urlpatterns = [
     path('conta/', include('accounts.urls')),     
     path('contact/',views.contact, name="contact"),
     path('sobre/',views.sobre, name="sobre"),
+    path('sobre-o-routermax/',views.about, name="about"),
 
 ]
 

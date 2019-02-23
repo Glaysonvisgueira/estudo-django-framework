@@ -38,7 +38,6 @@ class Motorista(models.Model):
 	categoria_habilitacao = models.CharField('Categoria', max_length = 2)
 	validade_habilitacao = models.DateTimeField('Validade da habilitação')
 	start_data = models.DateField('Data de início',null = True, blank = True)
-	#image = models.ImageField(upload_to = 'cadastro/images/motoristas', verbose_name = 'Imagem', null=True, blank=True)
 	created_at = models.DateTimeField('Cadastrado em',auto_now_add = True)
 	updated_at = models.DateTimeField('Cadastro atualizado em',auto_now = True)
 	objects = MotoristaManager()	

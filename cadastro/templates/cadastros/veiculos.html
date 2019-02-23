@@ -3,31 +3,29 @@
 
 {% block content %}
 
+<div class="container">
 <div class="row justify-content-center align-items-center">
-
-    <div>
+    <div class="col-md-4 col-md-offset-4 centered">
+        <hr/><hr/><hr/><hr/>
         <h1>Cadastro de frota</h1>
         {% if is_valid %}
         <p>Frota cadastrada com sucesso!</p>
         {% endif %}
-        <form action="#" method="post">
+        <form class="post-form" action="#" method="post" >
             {% csrf_token %}
             <fieldset>                
-                <div>
-                    {{ form.as_p }}                    
+                <div class="form-group">
+                    {{ form.as_p }}
+                    {{ form.post}}                   
                 </div>
                 
                 <div>
                     <button type="submmit" class="btn btn-primary">Cadastrar</button>
-                    <button type="submmit" class="btn btn-primary">Limpar</button>
                 </div>
             </fieldset>
         </form>
     </div>
 </div>
-
-
-
-
+</div>
 
 {% endblock %}
