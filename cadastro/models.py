@@ -36,7 +36,7 @@ class Motorista(models.Model):
 	CPF = models.CharField('CPF', max_length = 11)
 	num_registro = models.CharField('Número de registro',max_length = 11)
 	categoria_habilitacao = models.CharField('Categoria', max_length = 2)
-	validade_habilitacao = models.DateTimeField('Validade da habilitação')
+	validade_habilitacao = models.DateTimeField('Validade da habilitação', blank = True)
 	start_data = models.DateField('Data de início',null = True, blank = True)
 	created_at = models.DateTimeField('Cadastrado em',auto_now_add = True)
 	updated_at = models.DateTimeField('Cadastro atualizado em',auto_now = True)

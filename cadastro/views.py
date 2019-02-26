@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from cadastro.models import Cadastro, Motorista, Carros
-from cadastro.forms import ContactCourse, Carrosform
+from cadastro.forms import ContactCourse, Carrosform, Motoristaform
 
 def index(request):
 	cadastros = Cadastro.objects.all()
@@ -29,12 +29,17 @@ def details(request, slug):
     return render(request, template_name, context)
 
 def motoristas(request):
-	motoristas = Motorista.objects.all()
-	context = {
-		'motoristas': motoristas	
-	}
-	template_name = 'cadastros/motoristas.html'
-	return render(request, template_name, context) 
+    context = {}
+    template_name = 'cadastros/motoristas.html'
+    if request.method == "POST":
+        form = Motoristaform(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('http://localhost:8000/', pk=user.pk)
+    else:
+        form = Motoristaform()
+    context['form'] = form
+    return render(request, template_name, context)
 
 def veiculos(request):
     context = {}
