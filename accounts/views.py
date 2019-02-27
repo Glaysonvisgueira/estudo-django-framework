@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from accounts.forms import RegisterForm, EditAccountForm
 
+
 def register(request):
 	template_name = 'accounts/register.html'	
 	if request.method == 'POST':
@@ -21,6 +22,8 @@ def register(request):
 			'form' : form	
 		}
 	return render(request, template_name, context)
+
+
 @login_required 
 def editar(request):
     template_name = 'accounts/edit.html'
@@ -35,6 +38,7 @@ def editar(request):
         form = EditAccountForm(instance=request.user)
     context['form'] = form
     return render(request, template_name, context)
+
 
 @login_required 
 def dashboard(request):

@@ -1,28 +1,30 @@
 
 {% extends "base.html" %}
 
+{% load bootstrap %}
+
 {% block content %}
-<div class="pure-g-r content-ribbon">
-    <div class="pure-u-1">
-        <h2>Informe seus dados</h2>
-        <form class="pure-form pure-form-stacked" method="post">
-            {% csrf_token %}
-            <fieldset>
-                {{ form.non_field_errors }}
-
-                {% for field in form %}
-                <div class="pure-control-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {{ field.errors }}
-                </div>
-                {% endfor %}
-
-                <div class="pure-controls">
-                    <button type="submit" class="pure-button pure-button-primary">Cadastrar</button>
-                </div>
-            </fieldset>
-        </form>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-5 mx-auto">  
+            <br/><br/><br/>
+            <h2>Informe seus dados</h2>
+            <form class="form-group" method="post">
+                {% csrf_token %} 
+                {{ form|bootstrap }} 
+                <fieldset>
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                    <div>                        
+                        {{ field.errors }}
+                    </div>
+                    {% endfor %}
+                    <div>
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
