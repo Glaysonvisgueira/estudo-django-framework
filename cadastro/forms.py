@@ -1,5 +1,5 @@
 from django import forms
-from cadastro.models import Carros, Motorista
+from cadastro.models import Carros, Motorista, Zonas
 
 
 class ContactCourse(forms.Form):
@@ -17,13 +17,21 @@ class Carrosform(forms.ModelForm):
 		model = Carros
 		fields = ['modelo','ano','codigo']
 
-class Motoristaform(forms.ModelForm):
+class MotoristaForm(forms.ModelForm):
 	nome = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome do motorista'}))
 	RG = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o RG do motorista'}))
 	CPF = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o CPF do motorista'}))
 	número_de_registro = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o N° de reg. do motorista'}))
-	#categoria_habilitacao = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira a categoria da habilitação'}))
-	#validade_habilitacao = forms.DateTimeField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira a validade da habilitação'}))
+
 	class Meta:
 		model = Motorista
 		fields = ['nome','RG','CPF','número_de_registro']
+
+class ZonaForm(forms.ModelForm):
+
+	id_zona = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o número identificador da zona'}))
+	zona = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome da zona'}))
+	
+	class Meta:
+		model = Zonas
+		fields = ['id_zona','zona']

@@ -7,5 +7,6 @@ urlpatterns = [
 	path('<slug>',views.details, name="details"),
 	path('motoristas/',views.motoristas, name="motoristas"),
 	path('cadastrar-veiculos/',views.veiculos, name="veiculos"),
+	path('cadastrar-zonas/',views.zonas, name="zonas"),
 	#path('editar-veiculo/',views.editar_veiculo, name="editar-veiculo"),  	  	
 ] 

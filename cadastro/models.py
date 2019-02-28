@@ -62,3 +62,16 @@ class Carros(models.Model):
 		verbose_name = "Carro"
 		verbose_name_plural = "Carros"
 		ordering = ['modelo']
+
+
+class Zonas(models.Model):
+	id_zona = models.CharField('Id', max_length = 1)
+	zona = models.CharField('Nome da zona', max_length = 10)
+	 
+	def __str__(self):
+		return self.zona
+
+	class Meta:
+		verbose_name = "Zona"
+		verbose_name_plural = "Zonas"
+		ordering = ['id_zona']

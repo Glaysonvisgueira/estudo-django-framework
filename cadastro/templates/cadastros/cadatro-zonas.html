@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="container">
+<div class="row justify-content-center align-items-center">
+    <div class="centered">
+        <hr/><hr/><hr/><hr/>
+        <h1  class="shadow p-3 mb-5 bg-white rounded">Cadastro de Zonas Urbanas/Rurais</h1>        
+        <form class="post-form" action="#" method="post" >
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <fieldset>                
+                <div class="form-group">                    
+                    
+                </div>
+                
+                <div>
+                    <button type="submmit" class="btn btn-dark">Cadastrar Zona</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}
