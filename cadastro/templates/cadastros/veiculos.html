@@ -3,29 +3,33 @@
 
 {% block content %}
 
-<div class="container">
-<div class="row justify-content-center align-items-center">
-    <div class="centered">
-        <hr/><hr/><hr/><hr/>
-        <h1  class="shadow p-3 mb-5 bg-white rounded">Cadastro de frota</h1>
-        {% if is_valid %}
-        <p>Frota cadastrada com sucesso!</p>
-        {% endif %}
-        <form class="post-form" action="#" method="post" >
-            {% csrf_token %}
-            <fieldset>                
-                <div class="form-group">
-                    {{ form }}
-                    {{ form.post}}                   
-                </div>
-                
-                <div>
-                    <button type="submmit" class="btn btn-primary">Cadastrar</button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+<br/><br/><br/>
+<div>
+    <h2 align="center">Cadastro de frota</h2>
+    <hr/>
 </div>
+
+<div class="container ">
+    <div class="row ">
+        <div class="col-md-4 mx-auto">
+            {% if is_valid %}
+            <p>Frota cadastrada com sucesso!</p>
+            {% endif %}
+            <form class="post-form" action="#" method="post" >
+                {% csrf_token %}
+                <fieldset>                
+                    <div class="form-group">
+                        {{ form }}
+                        {{ form.post}}                   
+                    </div>
+                    
+                    <div>
+                        <button type="submmit" class="btn btn-info">Cadastrar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

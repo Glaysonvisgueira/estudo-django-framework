@@ -2,30 +2,32 @@
 {% extends "base.html" %}
 {% load bootstrap %}
 {% block content %}
+<br/><br/><br/>
+<div>
+    <h2 align="center">Faça login para utilizar o Routermax</h2>
+    <hr/>
+</div>
 <div class="container ">
     <div class="row ">
-        <div class="col-md-6 mx-auto">            
-            <br/><br/><br/>
-            <h2 class="shadow p-3 mb-5 bg-white rounded text-center">Informe seus dados de cadastro</h2>
+        <div class="col-md-4 mx-auto"> 
             <form method="post">
                 {% csrf_token %}
                 {{ form|bootstrap }}
                 <fieldset >
                     {{ form.non_field_errors }}
                     {% for field in form %}
-                    <div>                
+                    <div>  
+                     {{ field.errors }}
+                 </div>
+                 {% endfor %}
 
-                       {{ field.errors }}
-                   </div>
-                   {% endfor %}
-
-                   <div>
-                    <button class="btn btn-dark" type="submit">Entrar</button>
+                 <div>
+                    <button class="btn btn-info" type="submit">Entrar</button>
                 </div>
             </fieldset>
             <p>
-                Não é cadastrado? <a href="{% url 'register' %}" title="">Cadastre-se</a> <br />
-                Esqueceu a senha? <a href="#" title="">Nova senha</a> <br />
+                Não é cadastrado? <a href="{% url 'register' %}">Cadastre-se</a> <br />
+                Esqueceu a senha? <a href="#">Nova senha</a> <br />
             </p>
         </form>
 

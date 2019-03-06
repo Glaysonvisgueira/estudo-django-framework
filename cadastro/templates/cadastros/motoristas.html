@@ -3,11 +3,15 @@
 
 {% block content %}
 
-<div class="container">
-<div class="row justify-content-center align-items-center">
-    <div class="centered">
-        <hr/><hr/><hr/><hr/>
-        <h1 class="shadow p-3 mb-5 bg-white rounded">Cadastro de Motoristas</h1>
+<br/><br/><br/>
+<div>
+    <h2 align="center">Cadastro de Motoristas</h2>
+    <hr/>
+</div>
+
+<div class="container ">
+    <div class="row ">
+        <div class="col-md-4 mx-auto">
         {% if is_valid %}
         <p>Motorista cadastrado com sucesso!</p>
         {% endif %}
@@ -18,7 +22,7 @@
                    {{ form }}                                  
                 </div>                
                 <div>
-                    <button type="submmit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submmit" class="btn btn-info">Cadastrar</button>
                 </div>
             </fieldset>
         </form>
