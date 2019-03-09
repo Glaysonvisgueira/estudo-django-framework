@@ -8,7 +8,7 @@ def home(request):
 def contact(request):
 	return render(request,'contact.html')
 
-def sobre(request):
+def devs(request):
 	return render(request,'sobre.html')
 
 def about(request):

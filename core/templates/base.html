@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg bg-info ">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info font-weight-bold" >
         <img src="/static/img/routermax_logo.PNG" class="img-fluid" alt="routermax-logo" style="width:90px; height:50px;">
         <a class="navbar-brand" href="{% url 'home' %}">&nbsp;&nbsp;RouterMax</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -43,7 +43,7 @@
                     <a class="nav-link" href="{% url 'contact' %}">Fale Conosco</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                    <a class="nav-link" href="{% url 'devs' %}">Devs</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -84,7 +84,7 @@
     {% block content %} {% endblock %}  
 
 
-    <footer class="bg-info">    
+    <footer class="bg-info font-weight-bold text-dark">    
 
         <div class="text-center">Routermax, a menor distância entre você e o seu destino!
           <a>© 2019 Copyright</a>

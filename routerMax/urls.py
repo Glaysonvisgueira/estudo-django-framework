@@ -27,7 +27,7 @@ urlpatterns = [
     path('veiculos/', include('cadastro.urls')),
     path('conta/', include('accounts.urls')),     
     path('contact/',views.contact, name="contact"),
-    path('sobre/',views.sobre, name="sobre"),
+    path('devs/',views.devs, name="devs"),
     path('sobre-o-routermax/',views.about, name="about"),
 
 ]
