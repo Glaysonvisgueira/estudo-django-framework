@@ -1,44 +1,42 @@
-
 {% extends "base.html" %}
 
 {% load static %}
 
 {% block content %}
-<div>
-    <div>
-        <div>
-            <h4 >Frota disponível</h4>
-            <p>Abaixo a lista dos veículos cadastrados no banco de dados</p>
+<br/><br/><br/>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col">
+            <h2 align="center">Usuários Cadastrados no Banco de Dados</h2>
+            <hr/>
         </div>
     </div>
 </div>
+<br/>
+
 {% for cadastro in cadastros %}
-<div>
-    <div>
-        <div >
-            <a href="{% url 'details' slug=cadastro.slug %}">
-                {% if cadastro.image %}
-                <img src="{{ cadastro.image.url }}" alt="{{ cadastro.name }}" />
-                {% else %}
-                <img src="{% static 'img/course-image.png' %}" alt="{{ cadastro.name }}" />
-                {% endif %}
-            </a>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h4><a href="{% url 'details' slug=cadastro.slug %}" title="">{{ cadastro.name }}</a></h4>
-            {{ cadastro.description|linebreaks }}
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ cadastro.name }}</h5>
+                <p class="card-text">{{ cadastro.description|linebreaks }}</p>
+                <a href="{% url 'details' slug=cadastro.slug %}" class="btn btn-info">Detalhes</a>
+            </div>
         </div>
     </div>
 </div>
+</div>
+
 {% empty %}
-<div>
-    <div>
-        <div>
-            <p>Nenhum veículo está disponível</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Nenhum usuário cadastrado!</p>
         </div>
     </div>
 </div>
 {% endfor %}
+<br/><br/>
 {% endblock %}
