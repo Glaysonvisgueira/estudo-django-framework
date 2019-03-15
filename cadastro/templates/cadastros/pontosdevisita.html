@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <h2 align="center">Cadastro de Ponto de Visita</h2>
+    <hr/>
+</div>
+
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-3 mx-auto ">
+            {% if is_valid %}
+            <p>Frota cadastrada com sucesso!</p>
+            {% endif %}
+            <form class="post-form " action="#" method="post" >
+                {% csrf_token %}
+                <fieldset>                
+                    <div class="form-group">
+                        {{ form }}                 
+                    </div>
+                    
+                    <div>
+                        <button type="submmit" class="btn btn-info">Cadastrar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div></div>
+
+{% endblock %}

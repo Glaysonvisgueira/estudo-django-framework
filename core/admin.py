@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from cadastro.models import Cadastro, Motorista, Carros, Zonas
+from cadastro.models import Cadastro, Motorista, Carros, Zonas, PontosDeVisitas
 
 class CadastroAdmin(admin.ModelAdmin):
 
@@ -33,4 +33,12 @@ class ZonasAdmin(admin.ModelAdmin):
 	search_fields =['id_zona','zona']
 
 admin.site.register(Zonas, ZonasAdmin)	
+
+class PontosDeVisitasAdmin(admin.ModelAdmin):
+
+	list_display = ['cliente','cpf','endereco','complemento','bairro','cep','cidade','uf']
+	search_fields =['cliente','cpf','endereco','complemento','bairro','cep','cidade','uf']
+
+admin.site.register(PontosDeVisitas, PontosDeVisitasAdmin)	
+
 

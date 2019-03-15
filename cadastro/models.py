@@ -75,3 +75,27 @@ class Zonas(models.Model):
 		verbose_name = "Zona"
 		verbose_name_plural = "Zonas"
 		ordering = ['id_zona']
+
+class PontosDeVisitas(models.Model):
+	UF_DISPONIVEIS = (
+        ('PI', 'PI'),
+        ('MA', 'MA'),
+    )
+
+	id = models.AutoField(primary_key=True)
+	cliente = models.CharField('Cliente:', max_length = 120)
+	cpf = models.CharField('CPF:', max_length = 11)
+	endereco = models.CharField('Endereço:', max_length = 120)
+	complemento = models.CharField('Complemento:', max_length = 120, blank=True)
+	bairro = models.CharField('Bairro:', max_length = 40)
+	cep = models.CharField('CEP:', max_length = 8)
+	cidade = models.CharField('Cidade:', max_length = 30)
+	uf = models.CharField('UF:',choices=UF_DISPONIVEIS,max_length = 2)
+	
+	def __str__(self):
+		return self.bairro
+
+	class Meta:
+		verbose_name = "Ponto de visita"
+		verbose_name_plural = "Pontos de visitas"
+		ordering = ['bairro']

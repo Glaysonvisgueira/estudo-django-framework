@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
-from cadastro.models import Cadastro, Motorista, Carros, Zonas
-from cadastro.forms import ContactCourse, Carrosform, MotoristaForm, ZonaForm
+from cadastro.models import Cadastro, Motorista, Carros, Zonas, PontosDeVisitas
+from cadastro.forms import ContactCourse, Carrosform, MotoristaForm, ZonaForm, PontosDeVisitasForm
 
 def index(request):
 	cadastros = Cadastro.objects.all()
@@ -65,6 +65,27 @@ def zonas(request):
     else:
         form = ZonaForm()
     context['form'] = form
+    return render(request, template_name, context)
+
+def pdv(request):
+    context = {}
+    template_name = 'cadastros/pontosdevisita.html'
+    if request.method == "POST":
+        form = PontosDeVisitasForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('http://localhost:8000/', pk=user.pk)
+    else:
+        form = PontosDeVisitasForm()
+    context['form'] = form
+    return render(request, template_name, context)
+
+def pdv_list(request):
+    pdvs = PontosDeVisitas.objects.all()
+    template_name = 'cadastros/pontosdevisita-lista.html'
+    context = {
+        'pdvs': pdvs
+    }
     return render(request, template_name, context)
 
 '''def editar_veiculo(request, pk):

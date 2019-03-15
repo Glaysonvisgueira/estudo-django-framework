@@ -1,5 +1,5 @@
 from django import forms
-from cadastro.models import Carros, Motorista, Zonas
+from cadastro.models import Carros, Motorista, Zonas, PontosDeVisitas
 
 
 class ContactCourse(forms.Form):
@@ -35,3 +35,17 @@ class ZonaForm(forms.ModelForm):
 	class Meta:
 		model = Zonas
 		fields = ['id_zona','zona']
+
+class PontosDeVisitasForm(forms.ModelForm):
+	cliente = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
+	cpf = forms.CharField(max_length=11, widget=forms.TextInput(attrs={'class':'form-control'}))
+	endereço = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
+	complemento = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
+	bairro = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control'}))
+	cep = forms.CharField(max_length=7,widget=forms.TextInput(attrs={'class':'form-control'}))
+	cidade = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control'}))
+	uf = forms.CharField(max_length=2,widget=forms.TextInput(attrs={'class':'form-control'}))
+	
+	class Meta:
+		model = PontosDeVisitas
+		fields = ['cliente','cpf','endereço','complemento','bairro','cep','cidade','uf']
