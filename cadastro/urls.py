@@ -10,5 +10,6 @@ urlpatterns = [
 	path('cadastrar-zonas/',views.zonas, name="zonas"),
 	path('pontos-de-visita/',views.pdv, name="pdv"),
 	path('pontos-de-visita-listagem/',views.pdv_list, name="pdv_list"),
+	path('zonas-listagem/',views.zonas_list, name="zonas_list"),
 	#path('editar-veiculo/',views.editar_veiculo, name="editar-veiculo"),  	  	
 ] 

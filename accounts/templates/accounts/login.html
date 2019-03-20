@@ -3,18 +3,16 @@
 {% load bootstrap %}
 {% block content %}
 
-<br/><br/><br/>
-
-
 <div class="container">    
     <div class="row align-items-center">       
-            <img src="/static/img/routermax_logo.PNG" alt="img" class="img-fluid col-5 mx-auto"/>       
+        <img src="/static/img/routermax_logo.PNG" alt="img" class="img-fluid col-5 mx-auto"/>       
     </div>
 </div>
 
-<div class="container">    
-    <div class="row "> 
-        <div class="col-md-4 mx-auto card"> 
+<div class="container">
+    <div class="row"> 
+        <div class="col-4 mx-auto"> 
+            <nav class="navbar bg-info mb-3 card"><strong>Sistema de login do Routermax</strong></nav>   
             <form method="post">
                 {% csrf_token %}
                 {{ form|bootstrap }}
@@ -22,23 +20,23 @@
                     {{ form.non_field_errors }}
                     {% for field in form %}
                     <div>  
-                     {{ field.errors }}
-                 </div>
-                 {% endfor %}
+                       {{ field.errors }}
+                   </div>
+                   {% endfor %}
 
-                 <div>
+                   <div>
                     <button class="btn btn-info" type="submit">
                         Entrar&nbsp;&nbsp;<img src="/static/feather/log-in.svg" alt="account login" class="icone"></button>
-                </div>
-            </fieldset>
-            <p>
-                Não é cadastrado? <a href="{% url 'register' %}">Cadastre-se</a> <br />
-                Esqueceu a senha? <a href="#">Nova senha</a> <br />
-            </p>
-        </form>
+                    </div>
+                </fieldset>
+                <p><br/>
+                    Não é cadastrado? <a href="{% url 'register' %}">Cadastre-se</a> <br />
+                    Esqueceu a senha? <a href="#">Nova senha</a> <br />
+                </p>
+            </form>
 
+        </div>
     </div>
-</div>
 </div>
 
 {% endblock %}

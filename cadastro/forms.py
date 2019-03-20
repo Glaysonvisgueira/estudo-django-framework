@@ -42,7 +42,7 @@ class PontosDeVisitasForm(forms.ModelForm):
 	endereço = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
 	complemento = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
 	bairro = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control'}))
-	cep = forms.CharField(max_length=7,widget=forms.TextInput(attrs={'class':'form-control'}))
+	cep = forms.CharField(max_length=8,widget=forms.TextInput(attrs={'class':'form-control'}))
 	cidade = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control'}))
 	uf = forms.CharField(max_length=2,widget=forms.TextInput(attrs={'class':'form-control'}))
 	

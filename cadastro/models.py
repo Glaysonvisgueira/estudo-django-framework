@@ -65,6 +65,7 @@ class Carros(models.Model):
 
 
 class Zonas(models.Model):
+	id = models.AutoField(primary_key=True)
 	id_zona = models.CharField('Id', max_length = 1)
 	zona = models.CharField('Nome da zona', max_length = 10)
 	 
@@ -80,6 +81,30 @@ class PontosDeVisitas(models.Model):
 	UF_DISPONIVEIS = (
         ('PI', 'PI'),
         ('MA', 'MA'),
+        ('AC', 'AC'),
+        ('AL', 'AL'),
+        ('AM', 'AM'),
+        ('AP', 'AP'),
+        ('BA', 'BA'),
+        ('ES', 'ES'),
+        ('CE', 'CE'),
+        ('GO', 'GO'),
+        ('MT', 'MT'),
+        ('MS', 'MS'),
+        ('MG', 'MG'),
+        ('PA', 'PA'),
+        ('PB', 'PB'),
+        ('PR', 'PR'),
+        ('PE', 'PE'),
+        ('RJ', 'RJ'),
+        ('RN', 'RN'),
+        ('RS', 'RS'),
+        ('RO', 'RO'),
+        ('RR', 'RR'),
+        ('SC', 'SC'),
+        ('SP', 'SP'),
+        ('SE', 'SE'),
+        ('TO', 'TO'),
     )
 
 	id = models.AutoField(primary_key=True)

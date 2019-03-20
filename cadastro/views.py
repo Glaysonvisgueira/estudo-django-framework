@@ -82,9 +82,17 @@ def pdv(request):
 
 def pdv_list(request):
     pdvs = PontosDeVisitas.objects.all()
-    template_name = 'cadastros/pontosdevisita-lista.html'
+    template_name = 'relatorios/pontosdevisita-lista.html'
     context = {
         'pdvs': pdvs
+    }
+    return render(request, template_name, context)
+
+def zonas_list(request):
+    zonas = Zonas.objects.all()
+    template_name = 'relatorios/lista-de-zonas.html'
+    context = {
+        'zonas': zonas
     }
     return render(request, template_name, context)
 
