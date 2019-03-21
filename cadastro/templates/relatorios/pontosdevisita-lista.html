@@ -51,15 +51,15 @@
             <tbody>            
                 <tr>
                     {% for pdv in pdvs %}                    
-                    <td>{{ pdv.id }}</td>
-                    <td>{{ pdv.cliente }}</td>
-                    <td>{{ pdv.cpf }}</td>
-                    <td>{{ pdv.endereco }}</td>
-                    <td>{{ pdv.complemento }}</td>
-                    <td>{{ pdv.bairro }}</td>
-                    <td>{{ pdv.cep }}</td>
-                    <td>{{ pdv.cidade }}</td>
-                    <td>{{ pdv.uf }}</td>
+                    <td><strong>{{ pdv.id }}</strong></td>
+                    <td>{{ pdv.cliente|upper }}</td>
+                    <td>{{ pdv.cpf|slice:"3" }}.{{ pdv.cpf|slice:"3:6" }}.{{ pdv.cpf|slice:"6:9" }}-{{ pdv.cpf|slice:"9:11" }}</td>
+                    <td>{{ pdv.endereco|upper }}</td>
+                    <td>{{ pdv.complemento|upper }}</td>
+                    <td>{{ pdv.bairro|upper }}</td>
+                    <td>{{ pdv.cep|slice:":5" }}-{{ pdv.cep|slice:"5:8" }}</td>
+                    <td>{{ pdv.cidade|upper }}</td>
+                    <td>{{ pdv.uf|upper }}</td>
                     <td>&nbsp;<a class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar PDV" href="#" role="button"><img src="/static/feather/edit.svg" alt="edit pdv" class="icone"></a></td>
                 </tr>
                 {% endfor %}

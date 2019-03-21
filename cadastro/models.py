@@ -66,8 +66,9 @@ class Carros(models.Model):
 
 class Zonas(models.Model):
 	id = models.AutoField(primary_key=True)
-	id_zona = models.CharField('Id', max_length = 1)
-	zona = models.CharField('Nome da zona', max_length = 10)
+	zona = models.CharField('Zona:', max_length = 10,default='')
+	cidade = models.CharField('Cidade:', max_length = 40,default='')
+	uf = models.CharField('UF:',max_length = 2,default='')
 	 
 	def __str__(self):
 		return self.zona
@@ -75,7 +76,7 @@ class Zonas(models.Model):
 	class Meta:
 		verbose_name = "Zona"
 		verbose_name_plural = "Zonas"
-		ordering = ['id_zona']
+		ordering = ['id']
 
 class PontosDeVisitas(models.Model):
 	UF_DISPONIVEIS = (

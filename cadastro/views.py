@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from cadastro.models import Cadastro, Motorista, Carros, Zonas, PontosDeVisitas
-from cadastro.forms import ContactCourse, Carrosform, MotoristaForm, ZonaForm, PontosDeVisitasForm
+from cadastro.forms import Carrosform, MotoristaForm, ZonaForm, PontosDeVisitasForm
 
 def index(request):
 	cadastros = Cadastro.objects.all()
@@ -15,15 +15,6 @@ def index(request):
 def details(request, slug):
     cadastro = get_object_or_404(Cadastro, slug=slug)
     context = {}
-    if request.method == 'POST':
-        form = ContactCourse(request.POST)
-        if form.is_valid():
-            context['is_valid'] = True
-            print(form.cleaned_data)
-            form = ContactCourse()
-    else:
-        form = ContactCourse()
-    context['form'] = form
     context['cadastro'] = cadastro
     template_name = 'cadastros/details.html'
     return render(request, template_name, context)

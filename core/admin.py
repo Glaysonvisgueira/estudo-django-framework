@@ -29,8 +29,8 @@ admin.site.register(Carros, CarrosAdmin)
 
 class ZonasAdmin(admin.ModelAdmin):
 
-	list_display = ['id_zona','zona']
-	search_fields =['id_zona','zona']
+	list_display = ['zona','cidade','uf']
+	search_fields =['zona','cidade','uf']
 
 admin.site.register(Zonas, ZonasAdmin)	
 

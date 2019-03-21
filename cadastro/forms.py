@@ -2,11 +2,6 @@ from django import forms
 from cadastro.models import Carros, Motorista, Zonas, PontosDeVisitas
 
 
-class ContactCourse(forms.Form):
-	name = forms.CharField(label='Nome', max_length=100)
-	email = forms.EmailField(label='E-mail')
-	message = forms.CharField(label='Mensagem/Dúvida', widget=forms.Textarea)
-
 class Carrosform(forms.ModelForm):
 
 	modelo = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o modelo do veículo'}))
@@ -29,12 +24,14 @@ class MotoristaForm(forms.ModelForm):
 
 class ZonaForm(forms.ModelForm):
 
-	id_zona = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o número identificador da zona'}))
+	
 	zona = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome da zona'}))
+	cidade = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira a cidade que a zona pertence'}))
+	uf = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira a UF que a zona pertence'}))
 	
 	class Meta:
 		model = Zonas
-		fields = ['id_zona','zona']
+		fields = ['zona','cidade','uf']
 
 class PontosDeVisitasForm(forms.ModelForm):
 	cliente = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control'}))
