@@ -16,6 +16,7 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form|bootstrap }}
+                {{ form.user}}
                 <fieldset >
                     {{ form.non_field_errors }}
                     {% for field in form %}

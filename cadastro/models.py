@@ -1,5 +1,34 @@
 from django.db import models
 
+UF_DISPONIVEIS = (
+        ('PI', 'PI'),
+        ('MA', 'MA'),
+        ('AC', 'AC'),
+        ('AL', 'AL'),
+        ('AM', 'AM'),
+        ('AP', 'AP'),
+        ('BA', 'BA'),
+        ('ES', 'ES'),
+        ('CE', 'CE'),
+        ('GO', 'GO'),
+        ('MT', 'MT'),
+        ('MS', 'MS'),
+        ('MG', 'MG'),
+        ('PA', 'PA'),
+        ('PB', 'PB'),
+        ('PR', 'PR'),
+        ('PE', 'PE'),
+        ('RJ', 'RJ'),
+        ('RN', 'RN'),
+        ('RS', 'RS'),
+        ('RO', 'RO'),
+        ('RR', 'RR'),
+        ('SC', 'SC'),
+        ('SP', 'SP'),
+        ('SE', 'SE'),
+        ('TO', 'TO'),
+    )
+
 class CadastroManager(models.Manager):
 
 	def search(self, query):
@@ -79,34 +108,7 @@ class Zonas(models.Model):
 		ordering = ['id']
 
 class PontosDeVisitas(models.Model):
-	UF_DISPONIVEIS = (
-        ('PI', 'PI'),
-        ('MA', 'MA'),
-        ('AC', 'AC'),
-        ('AL', 'AL'),
-        ('AM', 'AM'),
-        ('AP', 'AP'),
-        ('BA', 'BA'),
-        ('ES', 'ES'),
-        ('CE', 'CE'),
-        ('GO', 'GO'),
-        ('MT', 'MT'),
-        ('MS', 'MS'),
-        ('MG', 'MG'),
-        ('PA', 'PA'),
-        ('PB', 'PB'),
-        ('PR', 'PR'),
-        ('PE', 'PE'),
-        ('RJ', 'RJ'),
-        ('RN', 'RN'),
-        ('RS', 'RS'),
-        ('RO', 'RO'),
-        ('RR', 'RR'),
-        ('SC', 'SC'),
-        ('SP', 'SP'),
-        ('SE', 'SE'),
-        ('TO', 'TO'),
-    )
+	
 
 	id = models.AutoField(primary_key=True)
 	cliente = models.CharField('Cliente:', max_length = 120)

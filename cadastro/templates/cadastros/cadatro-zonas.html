@@ -8,24 +8,38 @@
     <hr/>
 </div>
 
-<div class="container ">
+<br/><br/><br/><br/>
+<div class="container  alert alert-dark">
     <div class="row ">
-        <div class="col-md-4 mx-auto"> 
-        <form class="post-form" action="#" method="post" >
-            {% csrf_token %}
-            {{ form|bootstrap }}
-            <fieldset>                
-                <div class="form-group">                    
-                    
-                </div>
-                
-                <div>
-                    <button type="submmit" class="btn btn-info">Cadastrar Zona</button>
+        <div class="col mx-auto"> 
+            <form class="post-form form-group" action="#" method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="fieldWrapper col-4">
+                        {{ form.zona.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Cliente:</label>
+                        {{ form.zona }}
+                    </div>
+                    <div class="fieldWrapper col-4">
+                        {{ form.cidade.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Cidade:</label>
+                        {{ form.cidade }}
+                    </div>
+                    <div class="fieldWrapper col-4">
+                        {{ form.uf.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">UF:</label>
+                        {{ form.uf }}
+                    </div>
+                </div><div><br/>
+                    <button type="submmit" class="btn btn-dark">Cadastrar Zona</button>
                 </div>
             </fieldset>
         </form>
     </div>
 </div>
 </div>
+
+
+
 
 {% endblock %}
