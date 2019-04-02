@@ -16,7 +16,7 @@
     <title>RouterMax</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 </head>
-<body>
+<body class="alert-secondary">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light font-weight-bold " >
         <!--<img src="/static/img/routermax_logo.PNG" class="img-fluid" alt="routermax-logo" style="width:90px; height:50px;">-->
         <a class="navbar-brand" href="{% url 'home' %}">&nbsp;&nbsp;RouterMax</a>
@@ -26,12 +26,12 @@
         <div class="collapse navbar-collapse " id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto ">          
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Início</a>
+                    <a class="nav-link" href="{% url 'home' %}">Início&nbsp;<img src="/static/feather/home.svg" alt="user" class="icone"></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cadastros
+                            Cadastros&nbsp;<img src="/static/feather/folder-plus.svg" alt="user" class="icone">
                         </a>
                         <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{% url 'veiculos' %}">Veículos</a>
@@ -46,7 +46,7 @@
                 <li class="nav-item">
                     <div class="dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Relatórios
+                            Relatórios&nbsp;<img src="/static/feather/book-open.svg" alt="user" class="icone">
                         </a>
                         <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{% url 'index' %}">Veículos</a>
@@ -58,18 +58,18 @@
                     </div>
                 </li>                
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Fale Conosco</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Fale Conosco&nbsp;<img src="/static/feather/mail.svg" alt="user" class="icone"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'devs' %}">Devs</a>
+                    <a class="nav-link" href="{% url 'devs' %}">Devs&nbsp;<img src="/static/feather/code.svg" alt="user" class="icone"></a>
                 </li>
                 {% if user.is_authenticated %}                
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'dashboard' %}">Painel</a>
+                    <a class="nav-link" href="{% url 'dashboard' %}">Painel&nbsp;<img src="/static/feather/activity.svg" alt="user" class="icone"></a>
                 </li>
                 <li class="nav-item">
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções&nbsp;<img src="/static/feather/settings.svg" alt="user" class="icone"></a>
                     <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Editar conta</a>
                         <a class="dropdown-item" href="#">Alterar Senha</a>
@@ -102,7 +102,7 @@
 {% block content %} {% endblock %}  
 
 
-<footer class="bg-light font-weight-bold footer fixed-bottom">    
+<footer class="font-weight-bold footer fixed-bottom">    
 
     <div class="text-center">Routermax, a menor distância entre você e o seu destino!
       <a>© 2019 Copyright</a>
@@ -115,8 +115,6 @@
 }
 </style>
 </footer>
-
-
 </body>
 </html>
 

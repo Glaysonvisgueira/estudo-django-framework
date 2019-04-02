@@ -65,7 +65,7 @@ def pdv(request):
         form = PontosDeVisitasForm(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('http://localhost:8000/', pk=user.pk)
+            return redirect('http://localhost:8000/veiculos/pontos-de-visita/', pk=user.pk)
     else:
         form = PontosDeVisitasForm()
     context['form'] = form

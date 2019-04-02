@@ -7,7 +7,7 @@ UF_DISPONIVEIS = (
         ('AC', 'AC'),
         ('AL', 'AL'),
         ('AM', 'AM'),
-        ('AP', 'AP'),
+        ('PA', 'PA'),
         ('BA', 'BA'),
         ('ES', 'ES'),
         ('CE', 'CE'),
@@ -30,6 +30,10 @@ UF_DISPONIVEIS = (
         ('TO', 'TO'),
     )
 
+STATUS = (
+        ('ATIVO', 'ATIVO'),
+        ('INATIVO', 'INATIVO'),
+    )
 
 class Carrosform(forms.ModelForm):
 
@@ -42,17 +46,30 @@ class Carrosform(forms.ModelForm):
 		fields = ['modelo','ano','codigo']
 
 class MotoristaForm(forms.ModelForm):
-	nome = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome do motorista'}))
-	RG = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o RG do motorista'}))
-	CPF = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o CPF do motorista'}))
-	número_de_registro = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o N° de reg. do motorista'}))
+	nome = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome do motorista'}))
+	apelido = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Apelido do motorista'}))
+	rg = forms.CharField(max_length=15,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Registro geral'}))
+	cpf = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Cadastro de pessoa física'}))
+	codigo = forms.CharField(max_length=4,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Código do motorista'}))
+	num_cnh = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'N° de registro da CNH'}))
+	categoria = forms.CharField(max_length=2,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'A, B, AB'}))
+	endereco = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Rua, avenida, travessa, quadra...'}))
+	complemento = forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Próximo a pizzaria, praça, comércio, condomínio, apartamento e etc...'}))
+	bairro = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Nome do bairro'}))
+	cep = forms.CharField(max_length=8,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'XXXXX-XXX'}))
+	cidade = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Nome da cidade'}))
+	uf = forms.CharField(widget=forms.Select(choices=UF_DISPONIVEIS,attrs={'class':'form-control'}))
+	contato1 = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'(XX) XXXXX-XXXX'}))
+	contato2 = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'(XX) XXXXX-XXXX'}))
+	status = forms.CharField(widget=forms.Select(choices=STATUS,attrs={'class':'form-control'}))
+
 
 	class Meta:
 		model = Motorista
-		fields = ['nome','RG','CPF','número_de_registro']
+		fields = ['nome','apelido','rg','cpf','codigo','num_cnh','categoria','endereco','complemento','bairro','cep','cidade','uf','contato1','contato2','status']
+		
 
 class ZonaForm(forms.ModelForm):
-
 	
 	zona = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira o nome da zona'}))
 	cidade = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Insira a cidade que a zona pertence'}))
@@ -78,6 +95,4 @@ class PontosDeVisitasForm(forms.ModelForm):
 		model = PontosDeVisitas
 		fields = ['cliente','cpf','endereco','complemento','bairro','cep','cidade','uf']
 
-	def __init__(self, *args, **kwargs):
-		super(PontosDeVisitasForm, self).__init__(*args, **kwargs)
-		self.fields['uf'].initial = ' '
+	

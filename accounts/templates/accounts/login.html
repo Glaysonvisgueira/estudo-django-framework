@@ -9,10 +9,11 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container ">
     <div class="row"> 
-        <div class="col-4 mx-auto"> 
-            <nav class="navbar bg-info mb-3 card"><strong>Sistema de login do Routermax</strong></nav>   
+        <div class="col-5 card card-login mx-auto"> 
+           <div class="card-header">Login</div>
+           <div class="card-body">
             <form method="post">
                 {% csrf_token %}
                 {{ form|bootstrap }}
@@ -26,7 +27,42 @@
                    {% endfor %}
 
                    <div>
-                    <button class="btn btn-info" type="submit">
+                    <button class="btn btn-outline-dark btn-block" type="submit">
+                        Entrar&nbsp;&nbsp;<img src="/static/feather/log-in.svg" alt="account login" class="icone"></button>
+                    </div>
+                </fieldset>
+
+                
+                <p><br/>
+                    Não é cadastrado? &nbsp;&nbsp;<a class="badge badge-light" href="{% url 'register' %}">Cadastre-se&nbsp;&nbsp;<img src="/static/feather/user-plus.svg" alt="user" class="icone"></a>
+                    <br />
+                    Esqueceu a senha?&nbsp;&nbsp;&nbsp;<a class="badge badge-light" href="#">Nova senha&nbsp;&nbsp;<img src="/static/feather/key.svg" alt="user" class="icone"></a> <br />
+                </p>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container ">
+    <div class="row"> 
+        <div class="col-4 mx-auto"> 
+            <nav class="navbar bg-dark mb-3 card text-light"><strong>Sistema de login do Routermax</strong></nav>   
+            <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                {{ form.user}}
+                <fieldset >
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                    <div>  
+                       {{ field.errors }}
+                   </div>
+                   {% endfor %}
+
+                   <div>
+                    <button class="btn btn-outline-dark" type="submit">
                         Entrar&nbsp;&nbsp;<img src="/static/feather/log-in.svg" alt="account login" class="icone"></button>
                     </div>
                 </fieldset>
@@ -35,9 +71,7 @@
                     Esqueceu a senha? <a href="#">Nova senha</a> <br />
                 </p>
             </form>
-
         </div>
     </div>
-</div>
-
+</div>-->
 {% endblock %}

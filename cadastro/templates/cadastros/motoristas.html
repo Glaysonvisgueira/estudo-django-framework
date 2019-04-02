@@ -3,12 +3,8 @@
 
 {% block content %}
 
-<div>
-    <h2 align="center">Cadastro de Motoristas</h2>
-    <hr/>
-</div>
 
-<div class="container ">
+<!--<div class="container ">
     <div class="row ">
         <div class="col-md-4 mx-auto">
         {% if is_valid %}
@@ -27,6 +23,112 @@
         </form>
     </div>
 </div>
+</div>-->
+
+<div class="container ">
+    <div class="row">
+        <div class="mx-auto card ">
+            <div class="card-header"><h4><strong>Documentações</strong></h4></div>
+            <div class="card-body">
+                {{ form.non_field_errors }}
+                <form class="post-form form-group" action="#" method="post" >
+                    {% csrf_token %}
+                    <div class="row ">
+                        <div class="col-8 mt-2">
+                            <label class="font-weight-bold">Nome do motorista:</label>
+                            {{ form.nome }}                        
+                        </div>
+                        <div class="col-4 mt-2">
+                            <label class="font-weight-bold">Apelido:</label>
+                            {{ form.apelido }}                         
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">RG:</label>
+                            {{ form.rg }}                         
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Data de expediçao do RG:</label>
+                            {{ form.data_expedicao_rg }}                         
+                        </div>
+                        <div class="col-4">
+                            <label class="font-weight-bold">CPF:</label>
+                            {{ form.cpf }} 
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Nascimento:</label>
+                            {{ form.nascimento }} 
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Código:</label>
+                            {{ form.codigo }} 
+                        </div>
+                        <div class="col-6"></div>                      
+                        <div class="col-4">
+                            <label class="font-weight-bold">CNH:</label>
+                            {{ form.num_cnh }} 
+                        </div>  
+                        <div class="col-3">
+                            <label class="font-weight-bold">Data de emissão da CNH:</label>
+                            {{ form.emissao_cnh }} 
+                        </div>  
+                        <div class="col-3">
+                            <label class="font-weight-bold">Data de validade da CNH:</label>
+                            {{ form.validade_habilitacao }} 
+                        </div>  
+                        <div class="col-2">
+                            <label class="font-weight-bold">Categoria:</label>
+                            {{ form.categoria }}<br/> 
+                        </div>                        
+                        <div class="card-header mx-auto col-12"><h4><strong>Endereço/Contato</strong></h4></div>
+
+
+                        <div class="col-12 mt-2">
+                            <label class="font-weight-bold">Endereço:</label>
+                            {{ form.endereco }} 
+                        </div>  
+                        <div class="col-12">
+                            <label class="font-weight-bold">Complemento:</label>
+                            {{ form.complemento }} 
+                        </div>  
+                        <div class="col-4">
+                            <label class="font-weight-bold">Bairro:</label>
+                            {{ form.bairro }} 
+                        </div>
+                        <div class="col-2">
+                            <label class="font-weight-bold">CEP:</label>
+                            {{ form.cep }} 
+                        </div>
+                        <div class="col-4">
+                            <label class="font-weight-bold">Cidade:</label>
+                            {{ form.cidade }} 
+                        </div>
+                        <div class="col-2">
+                            <label class="font-weight-bold">UF:</label>
+                            {{ form.uf }} 
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Contato:</label>
+                            {{ form.contato1 }} 
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Contato adicional:</label>
+                            {{ form.contato2 }} 
+                        </div>
+                        <div class="col-3">
+                            <label class="font-weight-bold">Status:</label>
+                            {{ form.status }} 
+                        </div>                       
+
+                        <div class="col-3"></div>                 
+                        <div class="col">
+                            <br/>
+                            <button type="submit" class="btn btn-outline-dark btn-block"><strong>Cadastrar ponto de visita</strong></button>                        
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

@@ -9,13 +9,13 @@
 </div>
 
 <br/><br/><br/><br/>
-<div class="container  alert alert-dark">
+<div class="container">
     <div class="row ">
         <div class="col mx-auto"> 
             <form class="post-form form-group" action="#" method="post" >
                 {% csrf_token %}
                 <div class="row">
-                    <div class="fieldWrapper col-4">
+                    <div class="fieldWrapper col-12">
                         {{ form.zona.errors }}
                         <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Cliente:</label>
                         {{ form.zona }}
@@ -25,7 +25,7 @@
                         <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Cidade:</label>
                         {{ form.cidade }}
                     </div>
-                    <div class="fieldWrapper col-4">
+                    <div class="fieldWrapper col-3">
                         {{ form.uf.errors }}
                         <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">UF:</label>
                         {{ form.uf }}

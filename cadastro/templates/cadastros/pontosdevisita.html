@@ -30,10 +30,82 @@
 </div>
 </div>
 -->
+
 <br/><br/>
-<div class="container-fluid ">
+
+<div class="container ">
     <div class="row">
-        <div class="col-8 mx-auto alert alert-dark">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cadastrar Pessoa Física</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Cadastrar Pessoa Jurídica</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="container ">
+            <div class="row">
+                <div class="alert alert-dark">
+                    {{ form.non_field_errors }}
+                    <form class="post-form form-group" action="#" method="post" >
+                        {% csrf_token %}
+                        <div class="row">                    
+                            <div class="col-7">
+                                <label class="font-weight-bold">Cliente:</label>
+                                {{ form.cliente }}                        
+                            </div>
+                            <div class="col-5">
+                                <label class="font-weight-bold">CPF:</label>
+                                {{ form.cpf }}                         
+                            </div>
+                            <div class="col-12">
+                                <label class="font-weight-bold">Endereço:</label>
+                                {{ form.endereco }}                         
+                            </div>
+                            <div class="col-12">
+                                <label class="font-weight-bold">Complemento do endereço:</label>
+                                {{ form.complemento }} 
+                            </div>
+                            <div class="col-4">
+                                <label class="font-weight-bold">Bairro:</label>
+                                {{ form.bairro }}                        
+                            </div>
+                            <div class="col-2">
+                                <label class="font-weight-bold">CEP:</label>
+                                {{ form.cep }} 
+                            </div>
+                            <br/>
+                            <div class="col-4">
+                                <label class="font-weight-bold">Cidade:</label>
+                                {{ form.cidade }} 
+
+                            </div>
+                            <div class="col-2">
+                                <label class="font-weight-bold">UF:</label> 
+                                {{form.uf}}                        
+                            </div>
+                            <div class="col">
+                                <br/>
+                                <button type="submit" class="btn btn-dark">Cadastrar ponto de visita</button>
+                                <button type="submit" class="btn btn-dark">Limpar campos</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+</div>
+</div>
+</div>
+
+<!--
+<br/><br/>
+<div class="container ">
+    <div class="row">
+        <div class="alert alert-dark">
             {{ form.non_field_errors }}
             <form class="post-form form-group" action="#" method="post" >
                 {% csrf_token %}
@@ -82,61 +154,7 @@
         </div>
     </div>
 </div>
-
-<!---
-<div class="container  alert alert-dark">
-    <div class="row">
-        <div class="col">
-            <form class="post-form form-group" action="#" method="post" >
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-7">
-                        <label class="font-weight-bold">Cliente:</label>
-                        <input type="text" class="form-control" placeholder="Nome">
-                    </div>
-                    <div class="col-5">
-                        <label class="font-weight-bold">CPF:</label>
-                        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX">
-                    </div>
-                    <div class="col-12">
-                        <label class="font-weight-bold ">Endereço:</label>
-                        <input type="text" class="form-control" placeholder="Rua, avenida, travessa, quadra...">
-                    </div>
-                    <div class="col-12">
-                        <label class="font-weight-bold">Complemento do endereço:</label>
-                        <input type="text" class="form-control" placeholder="Próximo a pizzaria, praça, comércio, condomínio, apartamento e etc...">
-                    </div>
-                    <div class="col-4">
-                        <label class="font-weight-bold">Bairro:</label>
-                        <input type="text" class="form-control" placeholder="Nome do bairro">
-                    </div>
-                    <div class="col-2">
-                        <label class="font-weight-bold">CEP:</label>
-                        <input type="text" class="form-control" placeholder="XXXXX-XXX">
-                    </div>
-                    <br/>
-                    <div class="col-4">
-                        <label class="font-weight-bold">Cidade:</label>
-                        <input type="text" class="form-control" placeholder="Nome da cidade">
-                    </div>
-                    <div class="col-2">
-                        <label class="font-weight-bold">UF:</label>                    
-                        <select class="form-control">
-                           <option value=""></option> 
-                           <option value="PI">PI</option>
-                           <option value="MA">MA</option>
-                       </select>
-                   </div>
-                   <div class="col-3"><br/>
-                      <button type="submit" class="btn btn-dark">Cadastrar ponto de visita</button>
-                  </div>
-              </div>
-          </form>
-      </div>
-  </div>
-</div>-->
-
-
+-->
 
 
 

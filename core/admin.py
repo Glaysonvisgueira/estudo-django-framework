@@ -12,9 +12,9 @@ admin.site.register(Cadastro, CadastroAdmin)
 
 class MotoristaAdmin(admin.ModelAdmin):
 
-	list_display = ['name','slug','rg_identidade','CPF','num_registro','categoria_habilitacao','validade_habilitacao','start_data','created_at','updated_at']
-	search_fields =['name','slug','CPF','rg_identidade','num_registro']
-	prepopulated_fields = {'slug': ('name',)}
+	list_display = ['nome','apelido','slug','rg','data_expedicao_rg','cpf','codigo','num_cnh','emissao_cnh','categoria','validade_habilitacao','categoria','endereco','complemento','bairro','cep','cidade','uf','contato1','contato2','status','created_at','updated_at']
+	search_fields =['nome','slug','cpf','rg','num_cnh']
+	prepopulated_fields = {'slug': ('nome',)}
 
 admin.site.register(Motorista, MotoristaAdmin)
 
