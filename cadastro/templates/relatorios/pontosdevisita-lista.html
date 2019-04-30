@@ -32,8 +32,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-11 mx-auto table-responsive">
-            <table class="table table-sm table-bordered table-hover ">
-               <caption>Lista de pontos de visitas (clientes) cadastradados no banco de dados</caption>          
+            <table class="table table-sm table-bordered table-hover table-light">
+               <caption class="text-light">Lista de pontos de visitas (clientes) cadastradados no banco de dados</caption>          
                <thead class="thead-dark ">
                 <tr>
                     <th scope="col">ID</th>
@@ -53,7 +53,7 @@
                     {% for pdv in pdvs %}                    
                     <td><strong>{{ pdv.id }}</strong></td>
                     <td>{{ pdv.cliente|upper }}</td>
-                    <td>{{ pdv.cpf|slice:"3" }}.{{ pdv.cpf|slice:"3:6" }}.{{ pdv.cpf|slice:"6:9" }}-{{ pdv.cpf|slice:"9:11" }}</td>
+                    <td>{{ pdv.cpf_cnpj|slice:"3" }}.{{ pdv.cpf_cnpj|slice:"3:6" }}.{{ pdv.cpf_cnpj|slice:"6:9" }}-{{ pdv.cpf_cnpj|slice:"9:11" }}</td>
                     <td>{{ pdv.endereco|upper }}</td>
                     <td>{{ pdv.complemento|upper }}</td>
                     <td>{{ pdv.bairro|upper }}</td>
@@ -68,6 +68,8 @@
     </div>
 </div>
 </div>
+
+
 
 
 

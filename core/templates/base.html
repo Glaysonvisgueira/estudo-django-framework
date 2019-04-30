@@ -4,9 +4,24 @@
 <html lang="en">
 
 <style type="text/css">
-.icone{
-   width:18px;
+    .icone{
+     width:18px;
+ }
+
+ .background-site
+ {
+    background-image: url('/static/img/Namn.jpg');
+    background-repeat: repeat;
+    background-size:100%;
 }
+
+.background-form
+ {
+    background-image: url('/static/img/Clouds.jpg');
+    background-repeat: repeat;
+    background-size:100%;
+}
+
 </style>
 
 <head>
@@ -16,8 +31,8 @@
     <title>RouterMax</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 </head>
-<body class="alert-secondary">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light font-weight-bold " >
+<body class="background-site">
+    <nav class="navbar fixed-top navbar-inverse navbar-expand-lg navbar-light bg-light font-weight-bold shadow background-form" >
         <!--<img src="/static/img/routermax_logo.PNG" class="img-fluid" alt="routermax-logo" style="width:90px; height:50px;">-->
         <a class="navbar-brand" href="{% url 'home' %}">&nbsp;&nbsp;RouterMax</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -34,9 +49,10 @@
                             Cadastros&nbsp;<img src="/static/feather/folder-plus.svg" alt="user" class="icone">
                         </a>
                         <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
+                            <h6 class="dropdown-header">Cadastros disponíveis</h6>
                             <a class="dropdown-item" href="{% url 'veiculos' %}">Veículos</a>
                             <a class="dropdown-item" href="{% url 'motoristas' %}">Motoristas</a>
-                            <a class="dropdown-item" href="{% url 'zonas' %}">Zonas de atendimento</a>
+                            <a class="dropdown-item " href="{% url 'zonas' %}">Zonas de atendimento</a>
                             <a class="dropdown-item" href="{% url 'pdv' %}">Clientes <strong>(Pontos de visita)</strong></a>
                             <a class="dropdown-item" href="#">Justificativas</a>
                             <a class="dropdown-item" href="#">Pontos de Visita</a>
@@ -49,8 +65,9 @@
                             Relatórios&nbsp;<img src="/static/feather/book-open.svg" alt="user" class="icone">
                         </a>
                         <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
+                            <h6 class="dropdown-header">Relatórios disponíveis</h6>
                             <a class="dropdown-item" href="{% url 'index' %}">Veículos</a>
-                            <a class="dropdown-item" href="#">Motoristas</a>
+                            <a class="dropdown-item" href="{% url 'motoristas_list' %}">Motoristas</a>
                             <a class="dropdown-item" href="{% url 'zonas_list' %}">Zonas de atendimento</a>
                             <a class="dropdown-item" href="{% url 'pdv_list' %}">Clientes <strong>(Pontos de visita)</strong></a>
                             <a class="dropdown-item" href="#">Justificativas</a>
@@ -68,24 +85,24 @@
                     <a class="nav-link" href="{% url 'dashboard' %}">Painel&nbsp;<img src="/static/feather/activity.svg" alt="user" class="icone"></a>
                 </li>
                 <li class="nav-item">
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções&nbsp;<img src="/static/feather/settings.svg" alt="user" class="icone"></a>
-                    <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Editar conta</a>
-                        <a class="dropdown-item" href="#">Alterar Senha</a>
-                        <a class="dropdown-item" href="#">Alterar E-mail</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'logout' %}"><img src="/static/feather/log-out.svg" alt="account logout" class="icone">&nbsp;&nbsp;Logout</a>
-                    </div>                
-                </div>
-            </li>
-            {% else%}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Entrar&nbsp;<img src="/static/feather/user.svg" alt="user" class="icone"></a></li>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções&nbsp;<img src="/static/feather/settings.svg" alt="user" class="icone"></a>
+                        <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton">
+                            <h6 class="dropdown-header">Configurações da conta</h6>
+                            <a class="dropdown-item" href="#">Editar conta</a>
+                            <a class="dropdown-item" href="#">Alterar Senha</a>
+                            <a class="dropdown-item" href="#">Alterar E-mail</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><img src="/static/feather/log-out.svg" alt="account logout" class="icone">&nbsp;&nbsp;Logout</a>
+                        </div>                
+                    </div>
+                </li>
+                {% else%}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Entrar&nbsp;<img src="/static/feather/user.svg" alt="user" class="icone"></a></li>
             </div>
             {% endif %}
         </ul>    
-    </div>
-    
+    </div>   
 </nav>
 
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -102,18 +119,20 @@
 {% block content %} {% endblock %}  
 
 
-<footer class="font-weight-bold footer fixed-bottom">    
+<footer class="footer font-weight-bold fixed-bottom">    
 
-    <div class="text-center">Routermax, a menor distância entre você e o seu destino!
+    <div class="text-center text-white">Routermax, a menor distância entre você e o seu destino!
       <a>© 2019 Copyright</a>
   </div>
 
   <style type="text/css">
-  footer{
-    width: 100%;        
-    bottom:0;
-}
+      footer{
+        width: 100%;        
+        bottom:0;
+    }
 </style>
+
+
 </footer>
 </body>
 </html>

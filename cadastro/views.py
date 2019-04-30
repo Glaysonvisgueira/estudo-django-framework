@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from bootstrap_datepicker_plus import DateTimePickerInput
 
 from cadastro.models import Cadastro, Motorista, Carros, Zonas, PontosDeVisitas
 from cadastro.forms import Carrosform, MotoristaForm, ZonaForm, PontosDeVisitasForm
@@ -85,6 +86,21 @@ def zonas_list(request):
     context = {
         'zonas': zonas
     }
+    return render(request, template_name, context)
+
+def motoristas_list(request):
+    motoristas = Motorista.objects.all()
+    template_name = 'relatorios/listagem-motoristas.html'
+    context = {
+        'motoristas': motoristas
+    }
+    return render(request, template_name, context)
+
+def exibir_motorista(request, id):
+    motorista = get_object_or_404(Motorista, id=id)
+    context = {}
+    context['motorista'] = motorista
+    template_name = 'relatorios/motorista.html'
     return render(request, template_name, context)
 
 '''def editar_veiculo(request, pk):

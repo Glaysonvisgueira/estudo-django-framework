@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'core',
     'cadastro',
     'accounts',
-    'bootstrapform', 
+    'bootstrapform',
+    'bootstrap_datepicker_plus', 
 ]
 
 MIDDLEWARE = [

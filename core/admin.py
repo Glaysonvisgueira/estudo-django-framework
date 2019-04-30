@@ -36,8 +36,8 @@ admin.site.register(Zonas, ZonasAdmin)
 
 class PontosDeVisitasAdmin(admin.ModelAdmin):
 
-	list_display = ['cliente','cpf','endereco','complemento','bairro','cep','cidade','uf']
-	search_fields =['cliente','cpf','endereco','complemento','bairro','cep','cidade','uf']
+	list_display = ['cliente','cpf_cnpj','endereco','complemento','bairro','cep','cidade','uf']
+	search_fields =['cliente','cpf_cnpj','endereco','complemento','bairro','cep','cidade','uf']
 
 admin.site.register(PontosDeVisitas, PontosDeVisitasAdmin)	
 

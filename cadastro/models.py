@@ -34,18 +34,24 @@ STATUS = (
         ('INATIVO', 'INATIVO'),
     )
 
+CATEGORIAS_HABILITACAO = (
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D'),
+        ('E', 'E'),
+    )
+
 
 class Cadastro(models.Model):
 	id = models.AutoField(primary_key=True)
-	name = models.CharField('Nome', max_length = 100)
-	slug = models.SlugField('Código do carro')
-	description = models.TextField('Descrição', blank = True)
-	about = models.TextField('Observações da Frota', blank = True)
-	start_data = models.DateField('Data de início',null = True, blank = True)
+	name = models.CharField('Nome:', max_length = 100)
+	slug = models.SlugField('Código do carro:')
+	description = models.TextField('Descrição:', blank = True)
+	about = models.TextField('Observações da Frota:', blank = True)
+	start_data = models.DateField('Data de início:',null = True, blank = True)
 	#image = models.ImageField(upload_to = 'cadastro/images', verbose_name = 'Imagem', null=True, blank=True)
 	created_at = models.DateTimeField('Criado em',auto_now_add = True)
-	updated_at = models.DateTimeField('Atualizado em',auto_now = True)
-	
+	updated_at = models.DateTimeField('Atualizado em',auto_now = True)	
 
 	def __str__(self):
 		return self.name 
@@ -61,16 +67,16 @@ class Motorista(models.Model):
 	apelido = models.CharField('Apelido:', max_length = 50, blank=True)
 	slug = models.SlugField('Código do motorista:', blank=True)
 	rg = models.CharField('RG', max_length = 13)
-	data_expedicao_rg = models.DateTimeField('Data de expedição do RG:')	
+	data_expedicao_rg = models.DateField('Data de expedição do RG:')	
 	cpf = models.CharField('CPF', max_length = 11)
-	nascimento = models.DateTimeField('Data de nascimento:')
-	codigo = models.CharField('Código:', max_length = 4, default="")
+	nascimento = models.DateField('Data de nascimento:')
+	codigo = models.CharField('Código:', max_length = 4)
 	num_cnh = models.CharField('Número de registro:',max_length = 11)
-	emissao_cnh = models.DateTimeField('Data de emissão da CNH:')
-	validade_habilitacao = models.DateTimeField('Validade da habilitação:')
-	categoria = models.CharField('Categoria:', max_length = 2,default="")
-	endereco = models.CharField('Endereço:', max_length = 120, default="")
-	complemento = models.CharField('Complemento:', max_length = 120, blank=True, default="")
+	emissao_cnh = models.DateField('Data de emissão da CNH:')
+	validade_habilitacao = models.DateField('Validade da habilitação:')
+	categoria = models.CharField('Categoria:', choices=CATEGORIAS_HABILITACAO,max_length = 1)
+	endereco = models.CharField('Endereço:', max_length = 120)
+	complemento = models.CharField('Complemento:', max_length = 120, blank=True)
 	bairro = models.CharField('Bairro:', max_length = 40)
 	cep = models.CharField('CEP:', max_length = 8)
 	cidade = models.CharField('Cidade:', max_length = 30)
@@ -82,12 +88,12 @@ class Motorista(models.Model):
 	updated_at = models.DateTimeField('Cadastro atualizado em:',auto_now = True)	
 	
 	def __str__(self):
-		return self.name
+		return self.nome
 
 	class Meta:
 		verbose_name = "Motorista"
 		verbose_name_plural = "Motoristas"
-		ordering = ['codigo']
+		ordering = ['nome','apelido','rg','data_expedicao_rg','cpf','nascimento','codigo','num_cnh','emissao_cnh','validade_habilitacao','categoria','endereco','complemento','bairro','cep','cidade','uf','contato1','contato2','status']
 
 class Carros(models.Model):
 	id = models.AutoField(primary_key=True)
@@ -118,12 +124,11 @@ class Zonas(models.Model):
 		verbose_name_plural = "Zonas"
 		ordering = ['id']
 
-class PontosDeVisitas(models.Model):
-	
+class PontosDeVisitas(models.Model):	
 
 	id = models.AutoField(primary_key=True)
 	cliente = models.CharField('Cliente:', max_length = 120)
-	cpf = models.CharField('CPF:', max_length = 11)
+	cpf_cnpj = models.CharField('CPF:', max_length = 14)
 	endereco = models.CharField('Endereço:', max_length = 120)
 	complemento = models.CharField('Complemento:', max_length = 120, blank=True)
 	bairro = models.CharField('Bairro:', max_length = 40)

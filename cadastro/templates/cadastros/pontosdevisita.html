@@ -3,7 +3,7 @@
 {% block content %}
 
 <div>
-    <h2 align="center">Cadastro de Ponto de Visita</h2>
+    <h2 align="center" class="text-light">Cadastro de Ponto de Visita</h2>
     <hr/>
 </div>
 <!--
@@ -33,72 +33,66 @@
 
 <br/><br/>
 
-<div class="container ">
-    <div class="row">
-        <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cadastrar Pessoa Física</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Cadastrar Pessoa Jurídica</a>
-        </div>
-    </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="container ">
+          <div class="container-fluid">
             <div class="row">
-                <div class="alert alert-dark">
-                    {{ form.non_field_errors }}
-                    <form class="post-form form-group" action="#" method="post" >
-                        {% csrf_token %}
-                        <div class="row">                    
-                            <div class="col-7">
-                                <label class="font-weight-bold">Cliente:</label>
-                                {{ form.cliente }}                        
-                            </div>
-                            <div class="col-5">
-                                <label class="font-weight-bold">CPF:</label>
-                                {{ form.cpf }}                         
-                            </div>
-                            <div class="col-12">
-                                <label class="font-weight-bold">Endereço:</label>
-                                {{ form.endereco }}                         
-                            </div>
-                            <div class="col-12">
-                                <label class="font-weight-bold">Complemento do endereço:</label>
-                                {{ form.complemento }} 
-                            </div>
-                            <div class="col-4">
-                                <label class="font-weight-bold">Bairro:</label>
-                                {{ form.bairro }}                        
-                            </div>
-                            <div class="col-2">
-                                <label class="font-weight-bold">CEP:</label>
-                                {{ form.cep }} 
-                            </div>
-                            <br/>
-                            <div class="col-4">
-                                <label class="font-weight-bold">Cidade:</label>
-                                {{ form.cidade }} 
+                <div class="card col-10 mx-auto">
+                    <div class="card-header"><h4><strong>Dados do ponto de vista</strong></h4></div>
+                    <div class="card-body">
 
-                            </div>
-                            <div class="col-2">
-                                <label class="font-weight-bold">UF:</label> 
-                                {{form.uf}}                        
-                            </div>
-                            <div class="col">
-                                <br/>
-                                <button type="submit" class="btn btn-dark">Cadastrar ponto de visita</button>
-                                <button type="submit" class="btn btn-dark">Limpar campos</button>
-                            </div>
+                            {{ form.non_field_errors }}
+                            <form class="post-form form-group" action="#" method="post" >
+                                {% csrf_token %}
+                                <div class="row">                    
+                                    <div class="col-7">
+                                        <label class="font-weight-bold">Cliente:</label>
+                                            {{ form.cliente }}                        
+                                    </div>
+                                    <div class="col-5">
+                                        <label class="font-weight-bold">CPF/CNPJ:</label>
+                                        {{ form.cpf_cnpj }}                         
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="font-weight-bold">Endereço:</label>
+                                        {{ form.endereco }}                         
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="font-weight-bold">Complemento do endereço:</label>
+                                        {{ form.complemento }} 
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="font-weight-bold">Bairro:</label>
+                                        {{ form.bairro }}                        
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="font-weight-bold">CEP:</label>
+                                        {{ form.cep }} 
+                                    </div>
+                                    <br/>
+                                    <div class="col-4">
+                                        <label class="font-weight-bold">Cidade:</label>
+                                        {{ form.cidade }} 
+
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="font-weight-bold">UF:</label> 
+                                        {{form.uf}}                        
+                                    </div>
+                                    <div class="col">
+                                        <br/>
+                                        <button type="submit" class="btn btn-dark">Cadastrar ponto de visita</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
         </div>
     </div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-</div>
-</div>
 </div>
 
 <!--

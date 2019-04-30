@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+
+<script type="text/javascript">
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})    
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col">            
+			<h1 align="center" class="text-light">
+				Tabela de Motoristas Cadastrados
+			</h1>
+			<hr/>
+		</div>
+	</div>
+</div>
+<br/> 
+<!--
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-outline-dark " href="{% url 'pdv' %}" role="button"><strong>Cadastrar Novo Ponto de Visita&nbsp;&nbsp;<img src="/static/feather/file-text.svg" alt="cadastrar pdv" class="icone"></strong></a>
+        </div>
+    </div>
+</div>
+<br/>
+-->
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 table-responsive">
+			<table class="table table-sm table-bordered table-hover table-light">
+				<caption class="text-light">Lista de motoristas cadastradados no banco de dados</caption>
+				<thead class="thead-dark ">
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Apelido</th>
+						<th scope="col">RG</th>
+						<th scope="col">Data expedição do RG</th>
+						<th scope="col">CPF</th>
+						<th scope="col">Nascimento</th>
+						<th scope="col">Código</th>
+						<th scope="col">CNH</th>
+						<th scope="col">Data de emissão da CNH</th>
+						<th scope="col">Validade CNH</th>
+						<th scope="col">Categoria</th>
+						<th scope="col">Endereço</th>
+						<th scope="col">Complemento</th>
+						<th scope="col">Bairro</th>
+						<th scope="col">CEP</th>
+						<th scope="col">Cidade</th>
+						<th scope="col">UF</th>
+						<th scope="col">Contato</th>
+						<th scope="col">Contato adicional</th>
+						<th scope="col">Status</th>
+						<th scope="col">Ação</th>
+					</tr>
+				</thead>
+				<tbody>            
+					<tr>
+						{% for motorista in motoristas %}                    
+						<td><strong>{{ motorista.id }}</strong></td>
+						<td>{{ motorista.nome|upper }}</td>
+						<td>{{ motorista.apelido|upper }}</td>
+						<td>{{ motorista.rg|upper }}</td>
+						<td>{{ motorista.data_expedicao_rg|upper }}</td>
+						<td>{{ motorista.cpf|slice:"3" }}.{{ motorista.cpf|slice:"3:6" }}.{{ motorista.cpf|slice:"6:9" }}-{{ motorista.cpf|slice:"9:11" }}</td>
+						<td>{{ motorista.nascimento|upper }}</td>						
+						<td>{{ motorista.codigo|upper }}</td>
+						<td>{{ motorista.num_cnh|upper }}</td>
+						<td>{{ motorista.emissao_cnh|upper }}</td>
+						<td>{{ motorista.validade_habilitacao|upper }}</td>
+						<td>{{ motorista.categoria|upper }}</td>
+						<td>{{ motorista.endereco|upper }}</td>
+						<td>{{ motorista.complemento|upper }}</td>
+						<td>{{ motorista.bairro|upper }}</td>
+						<td>{{ motorista.cep|slice:":5" }}-{{ motorista.cep|slice:"5:8" }}</td>
+						<td>{{ motorista.cidade|upper }}</td>
+						<td>{{ motorista.uf|upper }}</td>
+						<td>(0{{ motorista.contato1|slice:":2" }})&nbsp;{{ motorista.contato1|slice:"2:3" }}&nbsp;{{ motorista.contato1|slice:"3:7" }}-{{ motorista.contato1|slice:"7:11" }}</td>
+						<td>(0{{ motorista.contato2|slice:":2" }})&nbsp;{{ motorista.contato2|slice:"2:3" }}&nbsp;{{ motorista.contato2|slice:"3:7" }}-{{ motorista.contato2|slice:"7:11" }}</td>
+						{% if motorista.status == "ATIVO" %}
+						<td class="badge badge-success mx-auto">&nbsp;&nbsp;{{ motorista.status|upper }}&nbsp;&nbsp;</td>
+						{% else %}
+						<td class="badge badge-danger mx-auto">{{ motorista.status|upper }}</td>
+						{% endif %}	
+						<td>&nbsp;
+							<a href="#" class="badge badge-warning" data-toggle="tooltip" data-placement="top" title="Editar PDV" href="#" role="button"><img src="/static/feather/edit.svg" alt="edit pdv" class="icone "></a>&nbsp;&nbsp;<a href="#" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title="Excluir PDV" href="#" role="button"><img src="/static/feather/trash-2.svg" alt="delete pdv" class="icone"></a></td>	
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	{% endblock %}

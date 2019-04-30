@@ -4,11 +4,11 @@
 {% block content %}
 
 <div>
-    <h2 align="center">Cadastro de Zonas Urbanas/Rurais</h2>
+    <h2 align="center" class="text-light">Cadastro de Zonas Urbanas/Rurais</h2>
     <hr/>
 </div>
 
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><!--
 <div class="container">
     <div class="row ">
         <div class="col mx-auto"> 
@@ -26,6 +26,40 @@
                         {{ form.cidade }}
                     </div>
                     <div class="fieldWrapper col-3">
+                        {{ form.uf.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">UF:</label>
+                        {{ form.uf }}
+                    </div>
+                </div><div><br/>
+                    <button type="submmit" class="btn btn-dark">Cadastrar Zona</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+
+-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="card col-10 mx-auto">
+            <div class="card-header"><h4><strong>Cadastro de zoneamentos</strong></h4></div>
+            <div class="card-body">        
+            <form class="post-form form-group" action="#" method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="fieldWrapper col-4">
+                        {{ form.zona.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Zona:</label>
+                        {{ form.zona }}
+                    </div>
+                    <div class="fieldWrapper col-4">
+                        {{ form.cidade.errors }}
+                        <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">Cidade:</label>
+                        {{ form.cidade }}
+                    </div>
+                    <div class="fieldWrapper col-4">
                         {{ form.uf.errors }}
                         <label class="font-weight-bold" for="{{ form.subject.id_for_label }}">UF:</label>
                         {{ form.uf }}
